@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'tops#index'
   # root "posts#index"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :index, :show]
   resource :user_session, only: [:new, :create, :destroy]
 
   resources :test_results, except: [:show] do

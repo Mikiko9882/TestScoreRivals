@@ -1,0 +1,67 @@
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-0 pt-5">
+    <li class="breadcrumb-item">
+      <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Blog Grid no Sidebar</li>
+  </ol>
+</nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t('.title') %></h1>
+    </div>
+      <div class="col-lg-7 col-md-8">
+        <form class="row gy-2">
+          <div class="col-lg-5 col-sm-6">
+            <div class="d-flex align-items-center">
+              <div class="nav flex-nowrap me-sm-4 me-3">
+                <a href="blog-list-no-sidebar.html" class="nav-link me-2 p-0" aria-label="List view">
+                  <i class="bx bx-list-ul fs-4"></i>
+                </a>
+                <a href="blog-grid-no-sidebar.html" class="nav-link p-0 active" aria-label="Grid view">
+                  <i class="bx bx-grid-alt fs-4"></i>
+                </a>
+              </div>
+              <select class="form-select">
+                <option>All categories</option>
+                <option value="processes-and-tools">Processes &amp; Tools</option>
+                <option value="startups">Startups</option>
+                <option value="digital">Digital</option>
+                <option value="strategy">Strategy</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-7 col-sm-6">
+            <div class="input-group">
+              <input type="text" class="form-control pe-5 rounded" placeholder="Search the blog...">
+              <i class="bx bx-search position-absolute top-50 end-0 translate-middle-y me-3 zindex-5 fs-lg"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <!-- Blog grid -->
+  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+    <!-- Item -->
+    <% @users.each do |user| %>
+      <div class="col pb-3">
+        <article class="card border-0 shadow-sm h-100">
+          <div class="card-footer py-4">
+            <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+              <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
+              <%= user.decorate.full_name %> 
+            </a>
+            <p class="fw-bold text-dark text-decoration-none mt-3">comment: <%= user.introduction %></p>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+

@@ -15,7 +15,7 @@ ja:
         nickname: 'ニックネーム'
         grade_and_class: '学年・クラス'
         full_name: '氏名'
-        introduction: 'みんなに一言'
+        introduction: 'comment'
         avatar: 'アバター'
         role: '権限'
         created_at: '作成日時'
