@@ -1,3 +1,10 @@
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-0 pt-5">
+    <li class="breadcrumb-item active" aria-current="page">
+      <%= link_to "テスト結果の入力はこちらから", new_test_result_path %>
+    </li>
+  </ol>
+</nav>
 <!-- Breadcrumb -->
 <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
 <!-- Page content -->
@@ -16,13 +23,18 @@
         <article class="card border-0 shadow-sm h-100">
           <div class="card-body pb-4">
             <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex gap-2">
+                <%= link_to "show", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                <%= link_to "Edit", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                <%= link_to "Destroy", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+              </div>
               <li class="list-inline-item">
                 <%= l test_result.created_at, format: :long %>
               </li>
             </div>
-            <h3 class="h5 mb-3">
-              <%= link_to test_result.test_name, test_result_path(test_result) %>
-            </h3>
+            <h4 class= "mb-3">
+              <%= test_result.test_name %>
+            </h4>
             <p class="h5 mb-3">
               <p><strong>点数</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.score %></span></p>
               <p><strong>満点</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.max_score %></span></p>
