@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       get 'my_results'
     end
   end
+
+  resource :profile, only: %i[show edit update] 
 end

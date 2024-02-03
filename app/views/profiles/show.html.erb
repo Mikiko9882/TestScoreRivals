@@ -1,0 +1,31 @@
+<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+    <h1 class="text-center text-xl-start"><%= t '.title' %></h1>
+    <%= link_to "編集はこちらから", edit_profile_path %></p>
+    <div class="text-center">
+      <div class="d-table position-relative mx-auto mt-2 mt-lg-4 pt-5 mb-3">
+        <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
+      </div>
+      <h2 class="h5 mb-1"><%= current_user.decorate.full_name %></h2>
+      <p class="mb-3 pb-3"><%= current_user.email %></p>
+    </div>
+    <div class="row">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row"><%= t(User.human_attribute_name(:nickname)) %></th>
+            <td><%= current_user.nickname %></td>
+          </tr>
+          <tr>
+            <th scope="row"><%= t(User.human_attribute_name(:grade_and_class)) %></th>
+            <td><%= current_user.grade_and_class %></td>
+          </tr>
+          <tr>
+            <th scope="row"><%= 'みんなに一言' %></th>
+            <td><%= current_user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
