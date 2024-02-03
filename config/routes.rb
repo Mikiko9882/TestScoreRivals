@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resource :user_session, only: [:new, :create, :destroy]
+
+  resources :test_results do
+    collection do
+      get 'my_results'
+    end
+  end
 end

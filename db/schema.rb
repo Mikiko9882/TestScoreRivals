@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_03_071457) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_03_081945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "test_results", force: :cascade do |t|
+    t.string "test_name", null: false
+    t.integer "score", null: false
+    t.integer "max_score", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "achievement_rate"
+    t.index ["user_id"], name: "index_test_results_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -27,4 +38,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_071457) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "test_results", "users"
 end
