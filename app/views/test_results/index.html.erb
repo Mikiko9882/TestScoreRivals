@@ -24,9 +24,10 @@
           <div class="card-body pb-4">
             <div class="d-flex align-items-center justify-content-between mb-3">
               <div class="d-flex gap-2">
-                <%= link_to "show", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
-                <%= link_to "Edit", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
-                <%= link_to "Destroy", '#', class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                <% if current_user.own?(test_result) %>
+                  <%= link_to "Edit", edit_test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                  <%= link_to "Destroy", test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none", method: :delete, data: {turbo_method: :delete} %>
+                <% end %>
               </div>
               <li class="list-inline-item">
                 <%= l test_result.created_at, format: :long %>
@@ -46,6 +47,6 @@
           </div>
         </article>
       </div>
-      <% end %>
+    <% end %>
    </div>
 </section>

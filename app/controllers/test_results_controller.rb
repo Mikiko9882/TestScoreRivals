@@ -19,15 +19,11 @@ class TestResultsController < ApplicationController
     end
   end
 
-  def show
-    @test_result = TestResult.find(params[:id])
-  end
-
   def edit; end
 
   def update
     if @test_result.update(test_result_params)
-      redirect_to @test_result, success: t('defaults.message.updated', item: TestResult.model_name.human)
+      redirect_to test_results_path, success: t('defaults.message.updated', item: TestResult.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: TestResult.model_name.human)
       render :edit
