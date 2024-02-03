@@ -41,7 +41,7 @@
               <p><strong>達成率</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.achievement_rate %>%</span></p>
           </div>
           <div class="card-footer py-4">
-            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
+            <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
             <%= link_to test_result.user.decorate.full_name, users_path(test_result.user) %>
           </div>
         </article>
