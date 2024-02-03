@@ -12,6 +12,10 @@
         <%= link_to 'ログアウト', user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
       </div>      
     </div>
+    <%= render 'shared/follow_counts' %>
+    <div class="mr-3">
+      <strong>フォロワー数:</strong> <%= link_to current_user.followers.count, user_followers_path(current_user) %>
+    </div>
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
       <%= link_to 'ユーザー一覧', users_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
     </div>

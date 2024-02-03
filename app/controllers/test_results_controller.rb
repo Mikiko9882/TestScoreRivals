@@ -2,7 +2,8 @@ class TestResultsController < ApplicationController
   before_action :find_test_result, only: [:edit, :update, :destroy]
 
   def index
-    @test_results = TestResult.all
+    user_ids_to_display = [current_user.id, *current_user.following_ids]
+    @test_results = TestResult.where(user_id: user_ids_to_display).order(created_at: :desc)
   end
 
   def new

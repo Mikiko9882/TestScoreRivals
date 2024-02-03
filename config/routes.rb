@@ -9,7 +9,15 @@ Rails.application.routes.draw do
   root 'tops#index'
   # root "posts#index"
 
-  resources :users, only: [:new, :create, :index, :show]
+  resources :users, only: [:new, :create, :index, :show] do
+    resource :relationships, only: [:create, :destroy]
+  	  get "followings" => "relationships#followings", as: "followings"
+  	  get "followers" => "relationships#followers", as: "followers"
+    collection do
+      get 'search'
+    end
+  end
+  
   resource :user_session, only: [:new, :create, :destroy]
 
   resources :test_results, except: [:show] do
