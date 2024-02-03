@@ -19,6 +19,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id]).decorate
+    @test_results_data = TestResult.user_test_results(@user)
+    @average_achievement_rate = @user.average_achievement_rate
+  end
+
   private
     
   def user_params

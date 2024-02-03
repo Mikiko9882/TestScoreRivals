@@ -43,7 +43,7 @@
           </div>
           <div class="card-footer py-4">
             <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
-            <%= link_to test_result.user.decorate.full_name, users_path(test_result.user) %>
+            <%= link_to test_result.user.decorate.full_name, user_path(test_result.user) %>
           </div>
         </article>
       </div>
