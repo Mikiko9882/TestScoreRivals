@@ -12,7 +12,7 @@ class TestResultsController < ApplicationController
   def create
     @test_result = current_user.test_results.build(test_result_params)
     if @test_result.save
-      redirect_to root_path, success: t('defaults.message.created', item: TestResult.model_name.human)
+      redirect_to test_results_path, success: t('defaults.message.created', item: TestResult.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: TestResult.model_name.human)
       render :new
