@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(created_at: :desc)
   end
   
   def new
@@ -17,6 +18,12 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id]).decorate
+    @test_results_data = TestResult.user_test_results(@user)
+    @average_achievement_rate = @user.average_achievement_rate
   end
 
   private
