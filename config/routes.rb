@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :user_session, only: [:new, :create, :destroy]
 
-  resources :test_results, only: [:new, :index, :edit, :update, :destroy] do
+  resources :test_results, except: [:show] do
     collection do
       get 'my_results'
     end
