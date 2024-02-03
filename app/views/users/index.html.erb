@@ -42,6 +42,11 @@
               <%= user.decorate.full_name %> 
             </a>
             <p class="fw-bold text-dark text-decoration-none mt-3">comment: <%= user.introduction %></p>
+            <div class="mt-3">
+              <div id="follow-ajax-<%= user.id %>">
+                <%= render 'relationships/btn', user: user, options: { class: 'btn btn-info' } %>
+              </div>
+            </div>
           </div>
         </article>
       </div>
