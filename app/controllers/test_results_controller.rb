@@ -37,7 +37,7 @@ class TestResultsController < ApplicationController
 
   def my_results
     # ログインユーザーだけのテスト結果を取得
-    @my_test_results = current_user.test_results.order(created_at: :desc).page(params[:page])
+    @my_test_results = current_user.test_results.order(created_at: :desc)
   end
 
   private
