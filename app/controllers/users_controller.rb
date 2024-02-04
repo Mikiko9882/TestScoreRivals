@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]).decorate
     @test_results_data = TestResult.user_test_results(@user)
     @average_achievement_rate = @user.average_achievement_rate
+    @test_results = TestResult.where(user_id: @user.id).order(created_at: :desc)
   end
 
   private

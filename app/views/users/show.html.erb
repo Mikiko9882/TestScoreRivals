@@ -5,19 +5,19 @@
       <div class="d-table position-relative mx-auto mt-2 mt-lg-4 pt-5 mb-3">
         <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
       </div>
-      <h2 class="h5 mb-1"><%= current_user.decorate.full_name %></h2>
-      <p class="mb-3 pb-3"><%= current_user.email %></p>
+      <h2 class="h5 mb-1"><%= @user.decorate.full_name %></h2>
+      <p class="mb-3 pb-3"><%= @user.email %></p>
     </div>
     <div class="row">
       <table class="table">
         <tbody>
           <tr>
             <th scope="row"><%= t(User.human_attribute_name(:nickname)) %></th>
-            <td><%= current_user.nickname %></td>
+            <td><%= @user.nickname %></td>
           </tr>
           <tr>
             <th scope="row"><%= t(User.human_attribute_name(:grade_and_class)) %></th>
-            <td><%= current_user.grade_and_class %></td>
+            <td><%= @user.grade_and_class %></td>
           </tr>
           <tr>
             <th scope="row"><%= '達成率の平均値'%></th>
@@ -25,10 +25,11 @@
           <tr>
           <tr>
             <th scope="row"><%= 'みんなに一言' %></th>
-            <td><%= current_user.introduction %></td>
+            <td><%= @user.introduction %></td>
           </tr>
         </tbody>
       </table>
+      <%= line_chart @test_results_data, xtitle: 'テスト名', ytitle: '達成率', height: '400px' %>
     </div>
   </div>
 </div>

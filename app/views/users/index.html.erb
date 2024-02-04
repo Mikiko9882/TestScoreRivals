@@ -39,6 +39,7 @@
           <div class="card-footer py-4">
             <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
               <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
+              <%= user.grade_and_class %>
               <%= user.decorate.full_name %> 
             </a>
             <p class="fw-bold text-dark text-decoration-none mt-3">comment: <%= user.introduction %></p>
