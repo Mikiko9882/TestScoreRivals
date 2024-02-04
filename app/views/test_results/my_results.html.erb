@@ -1,15 +1,21 @@
-<% @my_test_results.each do |test_result| %>
-  <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
-  <!-- Page content -->
-  <section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
-    <!-- Page title + Layout switcher + Search form -->
-    <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
-      <div class="col-lg-5 col-md-4">
-        <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
-      </div>
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-0 pt-5">
+    <li class="breadcrumb-item active" aria-current="page"><%= link_to "テスト結果の入力はこちらから", new_test_result_path %></li>
+  </ol>
+</nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
-    <!-- Blog grid -->
-    <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+  </div>
+  <!-- Blog grid -->
+  <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+    <% @my_test_results.each do |test_result| %>
+      <!-- Item -->
       <div class="col pb-3">
         <article class="card border-0 shadow-sm h-100">
           <div class="card-body pb-4">
@@ -37,7 +43,7 @@
           </div>
         </article>
       </div>
-    </div>
-  </section>
-<% end %>
+    <% end %>
+  </div>
+</section>
 
