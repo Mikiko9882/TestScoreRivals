@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'tops#index'
   # root "posts#index"
+  get 'terms_of_service', to: 'terms_of_service#show'
+  get 'privacy_policy', to: 'privacy_policy#show'
 
   resources :users, only: [:new, :create, :index, :show] do
     resource :relationships, only: [:create, :destroy]
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  
+
   resource :user_session, only: [:new, :create, :destroy]
 
   resources :test_results, except: [:show] do
