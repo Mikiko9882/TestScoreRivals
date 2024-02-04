@@ -6,7 +6,8 @@ class TestResultsController < ApplicationController
     @user_achievements = User.where(id: user_ids_to_display)
                              .pluck(:id, :nickname)
                              .map { |user_id, nickname| [nickname, TestResult.where(user_id: user_id).average(:achievement_rate).to_f] }
-    @test_results = TestResult.where(user_id: user_ids_to_display).order(created_at: :desc)
+    @q = TestResult.ransack(params[:q])
+    @test_results = @q.result(distinct: true).joins(:user).where(users: { id: user_ids_to_display }).order(created_at: :desc).page(params[:page])
   end
 
   def new

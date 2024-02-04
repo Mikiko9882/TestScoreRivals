@@ -14,6 +14,27 @@
     <div class="col-lg-5 col-md-4">
       <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
+    <div class="col-lg-7 col-md-8">
+        <%= search_form_for @q, html: { class: 'row gy-2' } do |f| %>
+          <div class="col-lg-3 col-sm-6 mb-2">
+          <%= f.label :test_name_cont, 'テスト名を検索', class: 'visually-hidden' %>
+            <div class="input-group">
+              <%= f.search_field :test_name_cont, class: 'form-control', placeholder: 'テスト名を検索' %>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-2">
+            <div class="input-group">
+              <%= f.search_field :user_first_name_or_user_last_name_cont, class: 'form-control', placeholder: '氏名を検索' %>
+            </div>
+          </div>
+          <div class="col-lg-5 col-sm-12">
+            <div class="input-group">
+              <%= f.select :user_grade_and_class_cont, grade_and_class_options, { include_blank: '学年と組を選択' }, { class: 'form-control mr-2' } %>
+              <%= f.submit "検索", class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
   </div>
   <!-- Blog grid -->
   <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
@@ -49,6 +70,7 @@
         </article>
       </div>
     <% end %>
-   </div>
-   <%= column_chart @user_achievements, xtitle: 'ニックネーム', ytitle: '達成率の平均値', library: { animation: { duration: 1000 }, scales: { y: { beginAtZero: true, max: 100 } } } %>
+  </div>
+  <%= column_chart @user_achievements, xtitle: 'ニックネーム', ytitle: '達成率の平均値', library: { animation: { duration: 1000 }, scales: { y: { beginAtZero: true, max: 100 } } } %>
+  <%= paginate @test_results %>  
 </section>
