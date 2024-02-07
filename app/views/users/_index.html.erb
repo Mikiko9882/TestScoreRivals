@@ -16,7 +16,7 @@
               <a href="#" class="fw-bold text-dark text-decoration-none">
                 <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
                 <%= user.grade_and_class %>
-                <%= link_to @user.decorate.full_name, user_path(user) %> 
+                <%= link_to user.decorate.full_name, user_path(user) %> 
               </a>
               <p class="fw-bold text-dark text-decoration-none mt-3">comment: <%= user.introduction %></p>
               <div class="mt-3">
