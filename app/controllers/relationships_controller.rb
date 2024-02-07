@@ -18,7 +18,6 @@ class RelationshipsController < ApplicationController
       partial: 'relationships/btn',
       locals: { user: @user, followed: false },
     )
-
   end
   
   def followings
