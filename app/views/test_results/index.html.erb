@@ -37,7 +37,7 @@
       </div>
   </div>
   <!-- Blog grid -->
-  <%= turbo_frame_tag "test-results-list" do %>
+  
     <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
       <% @test_results.each do |test_result| %>
         <!-- Item -->
@@ -74,5 +74,5 @@
     </div>
     <%= column_chart @user_achievements, xtitle: 'ニックネーム', ytitle: '達成率の平均値', library: { animation: { duration: 1000 }, scales: { y: { beginAtZero: true, max: 100 } } } %>
     <%= paginate @test_results %>
-  <% end %>  
+
 </section>
