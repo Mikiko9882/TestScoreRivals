@@ -20,14 +20,29 @@
       <%= link_to 'ユーザー一覧', users_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
     </div>
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
-      <%= link_to '自分のテスト結果', my_results_test_results_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          テスト結果
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><%= link_to '自分のテスト結果', my_results_test_results_path, class: 'dropdown-item' %></li>
+          <li><%= link_to 'テスト結果一覧', test_results_path, class: 'dropdown-item' %></li>
+        </ul>
+      </div>
     </div>
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
-      <%= link_to 'テスト結果一覧', test_results_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          プロフィール
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><div class="dropdown-item"><%= current_user.decorate.full_name %></div></li>
+          <li><%= link_to (t 'profiles.show.title'), profile_path, class: 'dropdown-item' %></li>
+        </ul>
+      </div>
     </div>
-    <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
-      <%= link_to (t 'profiles.show.title'), profile_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+    <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
+      <%= link_to 'ログアウト', user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
     </div>
-    <%= link_to 'ログアウト', user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
   </div>
 </header>
