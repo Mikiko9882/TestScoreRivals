@@ -1,6 +1,6 @@
 class CreateNotifications < ActiveRecord::Migration[7.1]
   def change
-    create_table :notifications do |t|
+    create_table :notification do |t|
       t.integer :visitor_id, null: false
       t.integer :visited_id, null: false
       t.string :action, default: '', null: false
