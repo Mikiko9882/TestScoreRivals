@@ -42,6 +42,15 @@
       </div>
     </div>
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
+      <%= link_to(notifications_path) do %>
+        <% if unchecked_notifications.any? %>
+          <i class="bi bi-bell" style="font-size: 1.5em;"></i>
+        <% else %>
+          <i class="bi bi-bell-slash" style="font-size: 1.5em;"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
       <%= link_to 'ログアウト', user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
     </div>
   </div>

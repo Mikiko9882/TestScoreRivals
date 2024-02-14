@@ -1,0 +1,35 @@
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
+  <!-- Page content -->
+  <section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+    <!-- Page title + Layout switcher + Search form -->
+    <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+      <div class="col-lg-5 col-md-4">
+        <h1 class="mb-2 mb-md-0">通知</h1>
+      </div>
+    </div>
+      <% visitor = notification.visitor %>
+      <% visited = notification.visited %>
+      <div class="col-md-6 mx-auto">
+        <div class="form-inline">
+          <span>
+            <%= link_to user_path(visitor) do %>
+              <%= image_tag 'sample.jpg', class: "icon_mini" %>
+              <strong>
+                <%= visitor.nickname %>
+              </strong>
+            <% end %>
+            さんが
+            <% case notification.action
+              when 'follow' then %>
+              あなたをフォローしました
+            <% end %>
+          </span>
+        </div>
+        <div class="small text-muted text-right">
+          <%= time_ago_in_words(notification.created_at).upcase %>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </section>
+</nav>

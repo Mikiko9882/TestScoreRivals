@@ -11,6 +11,9 @@ class User < ApplicationRecord
   # フォロワーを取得
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :nickname, presence: true
@@ -50,5 +53,16 @@ class User < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "crypted_password", "email", "first_name", "grade_and_class", "id", "id_value", "introduction", "last_name", "nickname", "salt", "updated_at"]
+  end
+
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end
