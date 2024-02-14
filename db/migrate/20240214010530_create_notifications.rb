@@ -1,6 +1,6 @@
 class CreateNotifications < ActiveRecord::Migration[7.1]
   def change
-    create_table :notification do |t|
+    create_table :notifications do |t|
       t.integer :visitor_id, null: false
       t.integer :visited_id, null: false
       t.string :action, default: '', null: false
@@ -10,7 +10,7 @@ class CreateNotifications < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
-    add_index :notification, :visitor_id
-    add_index :notification, :visited_id
+    add_index :notifications, :visitor_id
+    add_index :notifications, :visited_id
   end
 end
