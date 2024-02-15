@@ -66,7 +66,7 @@
             <div class="card-footer py-4">
               <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
               <%= test_result.user.grade_and_class %>
-              <%= link_to test_result.user.decorate.full_name, user_path(test_result.user) %>
+              <%= link_to test_result.user.nickname, user_path(test_result.user) %>
             </div>
           </article>
         </div>
