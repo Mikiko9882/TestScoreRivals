@@ -41,7 +41,7 @@
           <div class="position-relative mb-4">
             <div class="form-group">
               <%= f.label :grade_and_class %>
-              <%= f.select :grade_and_class, options_for_select(grade_and_class_options), {}, class: 'form-control' %>
+              <%= f.select :grade_and_class, options_for_select(grade_and_class_options, @user.grade_and_class), {}, class: 'form-control' %>
             </div>
           </div>
         </div>
