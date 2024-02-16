@@ -27,6 +27,11 @@ ja:
         grade_and_class: "学年とクラス"
         user: "氏名"
         created_at: "作成日時"
+        test_date: "テスト実施日"
+        test_type: "教科名"
+        preparation_time: "勉強時間"
+        preparation_hours: "時間"
+        preparation_minutes: "分"
     enums:
       user:
         role:
