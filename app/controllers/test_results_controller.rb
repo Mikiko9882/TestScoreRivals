@@ -2,7 +2,7 @@ class TestResultsController < ApplicationController
   before_action :find_test_result, only: [:edit, :update, :destroy]
 
   def index
-    user_ids_to_display = [current_user.id, *current_user.following_ids]
+    user_ids_to_display = User.ids_to_display(current_user)
     @user_achievements = User.where(id: user_ids_to_display)
                              .pluck(:id, :nickname)
                              .map { |user_id, nickname| [nickname, TestResult.where(user_id: user_id).average(:achievement_rate).to_f] }

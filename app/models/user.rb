@@ -28,6 +28,10 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
+  def self.ids_to_display(user)
+    [user.id, *user.following_ids]
+  end
+
   # 指定したユーザーをフォローする
   def follow(user)
     active_relationships.create(followed_id: user.id)
