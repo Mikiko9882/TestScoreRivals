@@ -23,7 +23,7 @@ class TestResult < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["achievement_rate", "created_at", "id", "id_value", "max_score", "score", "test_name", "updated_at", "user_id"]
+    ["achievement_rate", "created_at", "id", "id_value", "max_score", "score", "test_name", "updated_at", "user_id", "test_type"]
   end
 
   def self.ransackable_associations(auth_object = nil)

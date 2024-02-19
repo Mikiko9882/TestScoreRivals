@@ -8,6 +8,8 @@ def grade_and_class_options
   
   options
 end
+
+include TestResultsHelper
     
 10.times do
   User.create!(
@@ -25,9 +27,13 @@ end
 20.times do |index|
   TestResult.create!(
     user: User.offset(rand(User.count)).first,
-    test_name: Faker::Educator.course_name,
+    test_name: test_name_options.sample,
     score: rand(100),
     max_score: 100, # Assuming the maximum score is 100
+    test_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+    test_type: test_type_options.sample,
+    preparation_hours: preparation_hours_options.sample[1],
+    preparation_minutes: preparation_minutes_options.sample[1],
   )
 end
     
