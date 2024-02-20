@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_16_031207) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_20_012736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_031207) do
     t.datetime "updated_at", null: false
     t.float "achievement_rate"
     t.date "test_date"
-    t.string "test_type"
     t.integer "preparation_hours"
     t.integer "preparation_minutes"
     t.index ["user_id"], name: "index_test_results_on_user_id"
