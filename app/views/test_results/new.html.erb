@@ -8,7 +8,7 @@
           <div class="position-relative mb-0">
             <div class="form-group">
               <%= f.label :test_name %>
-              <%= f.text_field :test_name, class: 'form-control' %>
+              <%= f.select :test_name, test_name_options, { include_blank: 'テスト名を選択' }, class: 'form-control' %>
             </div>
           </div>
         </div>
@@ -25,6 +25,29 @@
             <div class="form-group">
               <%= f.label :score %>
               <%= f.number_field :score, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-4">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :test_date %>
+              <%= f.date_field :test_date, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :preparation_time %>
+              <div class="row">
+                <div class="col">
+                  <%= f.select :preparation_hours, preparation_hours_options, { include_blank: '時間' }, class: 'form-control' %>
+                </div>
+                <div class="col">
+                  <%= f.select :preparation_minutes, preparation_minutes_options, { include_blank: '分' }, class: 'form-control' %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

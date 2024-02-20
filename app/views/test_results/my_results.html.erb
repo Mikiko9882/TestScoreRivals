@@ -25,18 +25,20 @@
                 <%= link_to "Destroy", test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none", method: :delete, data: {turbo_method: :delete} %>
               </div>
               <li class="list-inline-item">
-                <%= l test_result.created_at, format: :long %>
-              </li>
+                  <%= l test_result.created_at, format: :long %>
+                </li>
+              </div>
+              <h4 class= "mb-3">
+                <%= test_result.test_name %>
+              </h4>
+              <p class="h5 mb-3">
+                <p><strong>実施日</strong><span class="fs-lg fw-semibold me-2"> <%= test_result.test_date %></span></p>
+                <p><strong>学習時間</strong><span class="fs-lg fw-semibold me-2"> <%= test_result.preparation_hours%><strong>時間</strong> <%= test_result.preparation_minutes%><strong>分</strong></span></p>
+              <p class="h5 mb-3">
+                <p><strong>点数</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.score %></span></p>
+                <p><strong>満点</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.max_score %></span></p>
+                <p><strong>達成率</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.achievement_rate %>%</span></p>
             </div>
-            <h4 class= "mb-3">
-              <%= test_result.test_name %>
-            </h4>
-            <p class="h5 mb-3">
-              <p><strong>点数</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.score %></span></p>
-              <p><strong>満点</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.max_score %></span></p>
-              <p><strong>達成率</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.achievement_rate %>%</span></p>
-            </p>
-          </div>
           <div class="card-footer py-4">
             <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
             <%= link_to test_result.user.decorate.full_name, user_path(test_result.user) %>

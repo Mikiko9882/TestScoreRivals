@@ -1,10 +1,13 @@
 class TestResult < ApplicationRecord
   belongs_to :user
 
-  validates :test_name, presence: true, length: { maximum: 255 }
+  validates :test_name, presence: true
   validates :score, presence: true, numericality: { less_than_or_equal_to: :max_score } 
   validates :max_score, presence: true, numericality: { greater_than_or_equal_to: 0 } 
-  
+  validates :test_date, presence: true
+  validates :preparation_hours, presence: true
+  validates :preparation_minutes, presence: true
+
   before_save :calculate_achievement_rate
 
   private

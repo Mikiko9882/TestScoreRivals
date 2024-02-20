@@ -17,9 +17,8 @@
     <div class="col-lg-7 col-md-8">
         <%= search_form_for @q, html: { class: 'row gy-2' } do |f| %>
           <div class="col-lg-3 col-sm-6 mb-2">
-          <%= f.label :test_name_cont, 'テスト名を検索', class: 'visually-hidden' %>
             <div class="input-group">
-              <%= f.search_field :test_name_cont, class: 'form-control', placeholder: 'テスト名を検索' %>
+              <%= f.select :test_name_cont, test_name_options, { include_blank: 'テスト名を検索' }, { class: 'form-control' } %>
             </div>
           </div>
           <div class="col-lg-3 col-sm-6 mb-2">
@@ -27,7 +26,7 @@
               <%= f.search_field :user_first_name_or_user_last_name_cont, class: 'form-control', placeholder: '氏名を検索' %>
             </div>
           </div>
-          <div class="col-lg-5 col-sm-12">
+          <div class="col-lg-6 col-sm-12">
             <div class="input-group">
               <%= f.select :user_grade_and_class_cont, grade_and_class_options, { include_blank: '学年と組を選択' }, { class: 'form-control mr-2' } %>
               <%= f.submit "検索", class: 'btn btn-primary' %>
@@ -59,6 +58,9 @@
                 <%= test_result.test_name %>
               </h4>
               <p class="h5 mb-3">
+                <p><strong>実施日</strong><span class="fs-lg fw-semibold me-2"> <%= test_result.test_date %></span></p>
+                <p><strong>学習時間</strong><span class="fs-lg fw-semibold me-2"> <%= test_result.preparation_hours%><strong>時間</strong> <%= test_result.preparation_minutes%><strong>分</strong></span></p>
+              <p class="h5 mb-3">
                 <p><strong>点数</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.score %></span></p>
                 <p><strong>満点</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.max_score %></span></p>
                 <p><strong>達成率</strong><span class="fs-lg fw-semibold text-danger me-2"> <%= test_result.achievement_rate %>%</span></p>
@@ -74,5 +76,4 @@
     </div>
     <%= column_chart @user_achievements, xtitle: 'ニックネーム', ytitle: '達成率の平均値', library: { animation: { duration: 1000 }, scales: { y: { beginAtZero: true, max: 100 } } } %>
     <%= paginate @test_results %>
-
 </section>

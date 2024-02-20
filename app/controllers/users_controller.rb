@@ -21,10 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).decorate
-    @test_results_data = TestResult.user_test_results(@user)
+    @user = User.includes(:test_results).find(params[:id]).decorate
     @average_achievement_rate = @user.average_achievement_rate
-    @test_results = TestResult.where(user_id: @user.id).order(created_at: :desc)
+    @test_results_data = @user.test_results.order(created_at: :asc).pluck(:test_name, :achievement_rate).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] }
   end
 
   private
