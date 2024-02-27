@@ -9,6 +9,12 @@ class TestResult < ApplicationRecord
 
   before_save :calculate_achievement_rate
 
+  def display_preparation_time
+    hours = preparation_time_minutes / 60
+    minutes = preparation_time_minutes % 60
+    "#{hours}時間#{minutes}分"
+  end
+
   private
 
   def calculate_achievement_rate
