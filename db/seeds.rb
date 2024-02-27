@@ -31,6 +31,7 @@ end
     score: rand(100),
     max_score: 100, # Assuming the maximum score is 100
     test_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+    preparation_time_minutes: rand(300),
   )
 end
     
