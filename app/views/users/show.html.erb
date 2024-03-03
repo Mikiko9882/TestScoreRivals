@@ -29,7 +29,16 @@
           </tr>
         </tbody>
       </table>
-      <%= line_chart @test_results_data, xtitle: 'テスト名', ytitle: '達成率', height: '400px' %>
+    </div>
+  </div>
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 1000px;">
+    <div class="row">
+      <div class="col-md-6">
+        <%= line_chart @test_results_data, xtitle: 'テスト名', ytitle: '達成率', height: '400px' %>
+      </div>
+      <div class="col-md-6">
+        <%= scatter_chart @test_results_data2, xtitle: '学習時間（分）', ytitle: '点数', height: '400px' %>
+      </div>
     </div>
   </div>
 </div>
