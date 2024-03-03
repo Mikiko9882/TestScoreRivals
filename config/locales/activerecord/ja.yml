@@ -29,9 +29,7 @@ ja:
         created_at: "作成日時"
         test_date: "テスト実施日"
         test_type: "教科名"
-        preparation_time: "勉強時間"
-        preparation_hours: "時間"
-        preparation_minutes: "分"
+        preparation_time_minutes: "学習時間" 
     enums:
       user:
         role:

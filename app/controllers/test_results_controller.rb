@@ -52,6 +52,6 @@ class TestResultsController < ApplicationController
   end
 
   def test_result_params
-    params.require(:test_result).permit(:test_name, :score, :max_score, :test_date, :preparation_hours, :preparation_minutes)
+    params.require(:test_result).permit(:test_name, :score, :max_score, :test_date, :preparation_time_minutes)
   end
 end

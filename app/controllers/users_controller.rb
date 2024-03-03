@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.includes(:test_results).find(params[:id]).decorate
     @average_achievement_rate = @user.average_achievement_rate
     @test_results_data = @user.test_results.order(created_at: :asc).pluck(:test_name, :achievement_rate).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] }
+    @test_results_data2 = @user.test_results.pluck(:preparation_time_minutes, :score)
   end
 
   private

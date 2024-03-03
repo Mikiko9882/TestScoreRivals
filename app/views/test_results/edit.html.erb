@@ -36,18 +36,11 @@
             </div>
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-sm-6">
           <div class="position-relative mb-4">
             <div class="form-group">
-              <%= f.label :preparation_time %>
-              <div class="row">
-                <div class="col">
-                  <%= f.select :preparation_hours, preparation_hours_options, { include_blank: '時間' }, class: 'form-control' %>
-                </div>
-                <div class="col">
-                  <%= f.select :preparation_minutes, preparation_minutes_options, { include_blank: '分' }, class: 'form-control' %>
-                </div>
-              </div>
+              <%= f.label :preparation_time_minutes %>
+              <%= f.number_field :preparation_time_minutes, class: 'form-control' %>
             </div>
           </div>
         </div>
