@@ -30,6 +30,7 @@ ja:
         test_date: "テスト実施日"
         test_type: "教科名"
         preparation_time_minutes: "学習時間" 
+        display_preparation_time: "学習時間"
     enums:
       user:
         role:

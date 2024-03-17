@@ -31,4 +31,13 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   
   resources :notifications, only: :index
+
+  namespace :admin do
+    root to: 'test_results#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :test_results, only: %i[index edit update show destroy]
+    resources :users, only: %i[index edit update show destroy]
+  end
 end
