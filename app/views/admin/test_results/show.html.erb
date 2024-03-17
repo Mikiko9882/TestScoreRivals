@@ -1,7 +1,5 @@
 <% content_for(:test_name, @test_result.test_name) %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <h1><%= t('.title') %></h1>
       <div class="text-right mb-3">
         <%= link_to t('defaults.edit'), edit_admin_test_result_path(@test_result), class: 'btn btn-success' %>
@@ -37,6 +35,4 @@
           <td><%= l @test_result.created_at, format: :long %></td>
         </tr>
       </table>
-    </div>
-  </div>
-</div>
+</main>
