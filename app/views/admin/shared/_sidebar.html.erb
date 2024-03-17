@@ -87,9 +87,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex align-items-center gap-2" href="#">
-            <svg class="bi" width="16" height="16"><use xlink:href="#door-closed"/></svg>
-            Sign out
+          <a href="#" class="nav-link">
+            <div class="d-flex align-items-center gap-0">
+              <svg class="bi" width="16" height="16"><use xlink:href="#door-closed"/></svg>
+              <%= link_to t('defaults.logout'), admin_logout_path, class: 'nav-link', data: { turbo_method: :delete } %>
+            </div>
           </a>
         </li>
       </ul>
