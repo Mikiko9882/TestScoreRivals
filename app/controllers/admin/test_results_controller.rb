@@ -31,6 +31,6 @@ class Admin::TestResultsController < Admin::BaseController
   end
 
   def test_result_params
-    params.require(:test_result).permit(:test_name, :score, :max_score)
+    params.require(:test_result).permit(:test_name, :score, :max_score,  :test_date, :preparation_time_minutes)
   end
 end
