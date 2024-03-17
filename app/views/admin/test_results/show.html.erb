@@ -31,6 +31,14 @@
           <td><%= @test_result.achievement_rate %></td>
         </tr>
         <tr>
+          <th scope="row"><%= TestResult.human_attribute_name(:display_preparation_time) %></th>
+          <td><%= @test_result.display_preparation_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= TestResult.human_attribute_name(:test_date) %></th>
+          <td><%= l @test_result.test_date, format: :long %></td>
+        </tr>
+        <tr>
           <th scope="row"><%= TestResult.human_attribute_name(:created_at) %></th>
           <td><%= l @test_result.created_at, format: :long %></td>
         </tr>
