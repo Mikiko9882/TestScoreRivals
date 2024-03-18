@@ -15,8 +15,10 @@
     <%= l user.created_at, format: :long %>
   </td>
   <td>
-    <%= link_to t('defaults.show'), admin_user_path(user), class: 'btn btn-info' %>
-    <%= link_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success' %>
-    <%= link_to t('defaults.delete'), admin_user_path(user), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+    <div class="btn-group" role="group">
+      <%= button_to t('defaults.show'), admin_user_path(user), class: 'btn btn-info me-2' %>
+      <%= button_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success me-2' %>
+      <%= button_to t('defaults.delete'), admin_user_path(user), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+    </div>
   </td>
 </tr>

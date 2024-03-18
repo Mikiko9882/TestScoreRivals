@@ -46,8 +46,8 @@
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="d-flex gap-2">
                   <% if current_user.own?(test_result) %>
-                    <%= link_to "Edit", edit_test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
-                    <%= link_to "Destroy", test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none", method: :delete, data: {turbo_method: :delete} %>
+                    <%= button_to "Edit", edit_test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                    <%= button_to "Destroy", test_result_path(test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
                   <% end %>
                 </div>
                 <li class="list-inline-item">
